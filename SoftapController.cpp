@@ -639,7 +639,6 @@ int SoftapController::stopDriver(char *iface) {
     ret = setCommand(iface, "STOP");
 #endif
     LOGD("Softap driver stop: %d", ret);
-    return ret;
 #else
 	/* Just bring down the interface */
     ifc_init();
@@ -649,7 +648,7 @@ int SoftapController::stopDriver(char *iface) {
         LOGE("Softap %s down: %d", AR6002AP_IFNAME, ret);
     }
 #endif
-
+    return ret;
 }
 
 int SoftapController::startSoftap() {
